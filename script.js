@@ -36,4 +36,33 @@ function displayWord() {
       popup.style.display = 'flex';
     }
   }
+
+  // Update the wrong letters
+function updateWrongLettersEl() {
+    // Display wrong letters
+    wrongLettersEl.innerHTML = `
+      ${wrongLetters.length > 0 ? '<p>Wrong</p>' : ''}
+      ${wrongLetters.map(letter => `<span>${letter}</span>`)}
+    `;
   
+    // Display parts
+    figureParts.forEach((part, index) => {
+      const errors = wrongLetters.length;
+  
+      if (index < errors) {
+        part.style.display = 'block';
+      } else {
+        part.style.display = 'none';
+      }
+    });
+  
+    // Check if lost
+    if (wrongLetters.length === figureParts.length) {
+      finalMessage.innerText = 'Unfortunately you lost. ðŸ˜•';
+      popup.style.display = 'flex';
+    }
+  }
+  
+
+  
+displayWord();
