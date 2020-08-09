@@ -62,7 +62,16 @@ function updateWrongLettersEl() {
       popup.style.display = 'flex';
     }
   }
+
+  // Show notification
+function showNotification() {
+    notification.classList.add('show');
   
+    setTimeout(() => {
+      notification.classList.remove('show');
+    }, 2000);
+  }
+
 
   
 displayWord();
